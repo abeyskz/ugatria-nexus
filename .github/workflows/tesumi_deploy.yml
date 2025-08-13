@@ -1,0 +1,25 @@
+name: Deploy Tesumi Service
+
+on:
+  push:
+    paths:
+      - 'tesumi/**'
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: SSH Deploy Tesumi
+        run: |
+          ssh user@windows-server <<EOF
+          cd "C:\Services\tesumi"
+          docker-compose build
+          docker-compose up -d
+          docker-compose restart
+          EOF
+

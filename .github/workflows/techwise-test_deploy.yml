@@ -1,0 +1,24 @@
+name: Deploy Techwise-Test Service
+
+on:
+  push:
+    paths:
+      - 'techwise-test/**'
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: SSH Deploy Techwise-Test
+        run: |
+          ssh user@windows-server <<EOF
+          cd "C:\Services\techwise-test"
+          pip install -r requirements.txt
+          Restart-Service techwise-service
+          EOF
+

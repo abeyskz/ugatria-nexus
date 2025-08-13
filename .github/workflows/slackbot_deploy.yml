@@ -1,0 +1,24 @@
+name: Deploy Slackbot Service
+
+on:
+  push:
+    paths:
+      - 'slackbot/**'
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: SSH Deploy Slackbot
+        run: |
+          ssh user@windows-server <<EOF
+          cd "C:\Services\slackbot"
+          pip install -r requirements.txt
+          Restart-Service slackbot-service
+          EOF
+
