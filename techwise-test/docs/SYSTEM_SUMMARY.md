@@ -108,17 +108,19 @@ TechBookGAT:
 ## 📁 **完成ファイル構成**
 
 ```
-/Users/abeys/dev/TECHWISE/warp_generate/
-├── ✅ simple_demo.py           # 現在動作中のデモシステム
-├── 🔄 main.py                  # メイン実行スクリプト
-├── 🔄 data_loader.py           # PostgreSQLデータローダー
-├── 🔄 gcn_model.py             # GCN/GATモデル定義
-├── 🔄 trainer.py               # 学習・評価システム
-├── 🔄 recommendation_system.py # 推薦システム
-├── 📦 requirements.txt         # 依存関係
-├── 📖 README.md                # 詳細ドキュメント
-├── 🛠️ INSTALLATION_GUIDE.md   # インストールガイド
-└── 📊 SYSTEM_SUMMARY.md        # このファイル
+techwise-test/
+├── src/simple_demo.py           # 現在動作中のデモシステム
+├── src/main.py                  # メイン実行スクリプト
+├── src/data_loader.py           # PostgreSQLデータローダー
+├── src/gcn_model.py             # GCN/GATモデル定義
+├── src/trainer.py               # 学習・評価システム
+├── src/recommendation_system.py # 推薦システム
+├── requirements.txt         # 依存関係
+├── docs/
+│   ├── README.md                # 詳細ドキュメント
+│   ├── INSTALLATION_GUIDE.md   # インストールガイド
+│   └── SYSTEM_SUMMARY.md        # このファイル
+...
 ```
 
 ## 🎯 **要件達成状況**
@@ -140,8 +142,8 @@ TechBookGAT:
 
 ### **現在実行コマンド**
 ```bash
-cd /Users/abeys/dev/TECHWISE/warp_generate
-python simple_demo.py
+cd techwise-test
+python src/simple_demo.py
 ```
 
 ### **PyTorchインストール後**
@@ -152,9 +154,9 @@ conda activate techwise-gcn
 conda install pytorch torchvision torchaudio -c pytorch
 
 # フルシステム実行
-cd /Users/abeys/dev/TECHWISE/warp_generate
+cd techwise-test
 pip install -r requirements.txt
-python main.py --epochs 200 --include-gat
+python src/main.py --epochs 200 --include-gat
 ```
 
 ## 🎉 **達成した成果**

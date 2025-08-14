@@ -75,7 +75,7 @@ Attention heads: 8
 ### 1. 依存関係のインストール
 
 ```bash
-cd /Users/abeys/dev/TECHWISE/warp_generate
+cd techwise-test
 pip install -r requirements.txt
 ```
 

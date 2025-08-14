@@ -81,9 +81,9 @@
 - /ollama/ → :11434 (既存)
 - /voicevox/ → :50021 (既存)
 
-- /techwise/ → :8000. 8080
+- /techwise/ → :8000, :8080
 - /tesumi/ → :8001
-- /skillgarden/ → :8002  
+- /skillgarden/ → :8002
 - /wigmatch/ → :8003
 - /testprop-insight/ → :8004
 - /testprop-insight/ → :8005

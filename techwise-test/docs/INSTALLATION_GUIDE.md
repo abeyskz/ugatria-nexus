@@ -23,7 +23,7 @@ conda activate techwise-gcn
 conda install pytorch torchvision torchaudio -c pytorch
 
 # 依存関係インストール
-cd /Users/abeys/dev/TECHWISE/warp_generate
+cd techwise-test
 pip install -r requirements.txt
 ```
 
@@ -50,8 +50,8 @@ python setup.py install
 ### 現在利用可能: 簡易デモシステム
 
 ```bash
-cd /Users/abeys/dev/TECHWISE/warp_generate
-python simple_demo.py
+cd techwise-test
+python src/simple_demo.py
 ```
 
 **機能:**
@@ -64,20 +64,21 @@ python simple_demo.py
 ### PyTorchインストール後: フルGCNシステム
 
 ```bash
+cd techwise-test
 # データローダーテスト
-python data_loader.py
+python src/data_loader.py
 
 # GCNモデルテスト
-python gcn_model.py
+python src/gcn_model.py
 
 # 完全パイプライン実行
-python main.py --epochs 100
+python src/main.py --epochs 100
 
 # GCN vs GAT比較
-python main.py --epochs 200 --include-gat
+python src/main.py --epochs 200 --include-gat
 
 # 推薦システムデモ
-python main.py --demo-only
+python src/main.py --demo-only
 ```
 
 ## 📊 期待される出力
@@ -125,19 +126,19 @@ python -c "import torch; print(torch.__version__)"
 
 ### データベース接続確認
 ```bash
-python -c "from simple_demo import SimpleTechBookAnalyzer; analyzer = SimpleTechBookAnalyzer(); books = analyzer.load_books_from_db(); print(f'取得書籍数: {len(books)}')"
+python -c "from src.simple_demo import SimpleTechBookAnalyzer; analyzer = SimpleTechBookAnalyzer(); books = analyzer.load_books_from_db(); print(f'取得書籍数: {len(books)}')"
 ```
 
 ## 📚 システム構成
 
 ```
-warp_generate/
-├── simple_demo.py           # ✅ 現在動作（PyTorch不要）
-├── main.py                  # 🔄 PyTorchインストール後
-├── data_loader.py           # 🔄 PyTorchインストール後  
-├── gcn_model.py             # 🔄 PyTorchインストール後
-├── trainer.py               # 🔄 PyTorchインストール後
-├── recommendation_system.py # 🔄 PyTorchインストール後
+techwise-test/
+├── src/simple_demo.py           # ✅ 現在動作（PyTorch不要）
+├── src/main.py                  # 🔄 PyTorchインストール後
+├── src/data_loader.py           # 🔄 PyTorchインストール後  
+├── src/gcn_model.py             # 🔄 PyTorchインストール後
+├── src/trainer.py               # 🔄 PyTorchインストール後
+├── src/recommendation_system.py # 🔄 PyTorchインストール後
 └── requirements.txt         # 依存関係
 ```
 
@@ -163,10 +164,10 @@ warp_generate/
 
 ## 🚀 次のステップ
 
-1. **現在**: `python simple_demo.py` でシステム動作確認
+1. **現在**: `python src/simple_demo.py` でシステム動作確認
 2. **Python環境作成**: conda環境でPython 3.11使用
 3. **PyTorchインストール**: 上記手順に従ってインストール
-4. **フルシステム実行**: `python main.py --epochs 100`
+4. **フルシステム実行**: `python src/main.py --epochs 100`
 
 ## 💡 重要なポイント
 
