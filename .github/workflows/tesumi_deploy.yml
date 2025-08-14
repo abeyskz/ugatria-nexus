@@ -14,12 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: SSH Deploy Tesumi
+      - name: Deploy Tesumi via SSH
         run: |
-          ssh user@windows-server <<EOF
-          cd "C:\Services\tesumi"
-          docker-compose build
-          docker-compose up -d
-          docker-compose restart
-          EOF
+          bash scripts/deploy.sh tesumi docker "C:\\Services\\tesumi" "docker-compose restart"
 

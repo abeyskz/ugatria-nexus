@@ -287,11 +287,11 @@ tesumi/models/
 tesumi/logs/
 
 # Document files (Office)
-*.docx
-*.doc
-*.xlsx
-*.pptx
-*.pdf
+# *.docx
+# *.doc
+# *.xlsx
+# *.pptx
+# *.pdf
 
 # Temporary README files
 README.md.txt

@@ -14,11 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: SSH Deploy Slackbot
+      - name: Deploy Slackbot via SSH
         run: |
-          ssh user@windows-server <<EOF
-          cd "C:\Services\slackbot"
-          pip install -r requirements.txt
-          Restart-Service slackbot-service
-          EOF
+          bash scripts/deploy.sh slackbot python_script "C:\Services\slackbot" "Restart-Service slackbot-service"
 

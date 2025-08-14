@@ -14,11 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: SSH Deploy Techwise-Test
+      - name: Deploy Techwise-Test via SSH
         run: |
-          ssh user@windows-server <<EOF
-          cd "C:\Services\techwise-test"
-          pip install -r requirements.txt
-          Restart-Service techwise-service
-          EOF
+          bash scripts/deploy.sh techwise-test python "C:\Services\techwise-test" "Restart-Service techwise-service"
 
